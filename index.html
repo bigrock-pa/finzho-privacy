@@ -18,7 +18,7 @@
     .meta { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
     .lang-switch { text-align: right; margin-bottom: 24px; font-size: 0.9rem; }
     .lang-switch a { color: #0066cc; text-decoration: none; }
-    section[lang="en"] { display: none; }
+    .lang-section { display: none; }
     ul { padding-left: 20px; }
     li { margin-bottom: 6px; }
     a { color: #0066cc; }
@@ -27,12 +27,12 @@
 <body>
 
   <div class="lang-switch">
-    <a href="?lang=en" onclick="toggle(event)">English</a> /
-    <a href="?lang=ru" onclick="toggle(event)">Русский</a>
+    <a href="?lang=en" id="btn-en">English</a> /
+    <a href="?lang=ru" id="btn-ru">Русский</a>
   </div>
 
   <!-- РУССКИЙ -->
-  <section lang="ru" id="ru">
+  <section class="lang-section" id="ru">
     <h1>Политика конфиденциальности</h1>
     <p class="meta">Приложение: Финжо &nbsp;·&nbsp; Дата вступления в силу: 2 июля 2026 г.</p>
 
@@ -68,7 +68,7 @@
   </section>
 
   <!-- ENGLISH -->
-  <section lang="en" id="en">
+  <section class="lang-section" id="en">
     <h1>Privacy Policy</h1>
     <p class="meta">App: Finzho &nbsp;·&nbsp; Effective date: July 2, 2026</p>
 
@@ -104,12 +104,26 @@
   </section>
 
   <script>
-    function toggle(e) {
-      e.preventDefault();
-      const lang = new URL(e.target.href).searchParams.get("lang");
-      document.getElementById("ru").style.display = lang === "ru" ? "" : "none";
-      document.getElementById("en").style.display = lang === "en" ? "" : "none";
+    function showLang(lang) {
+      document.getElementById("ru").style.display = lang === "ru" ? "block" : "none";
+      document.getElementById("en").style.display = lang === "en" ? "block" : "none";
     }
+
+    document.getElementById("btn-en").addEventListener("click", function(e) {
+      e.preventDefault();
+      history.pushState(null, "", "?lang=en");
+      showLang("en");
+    });
+
+    document.getElementById("btn-ru").addEventListener("click", function(e) {
+      e.preventDefault();
+      history.pushState(null, "", "?lang=ru");
+      showLang("ru");
+    });
+
+    // Show correct language on page load
+    const lang = new URLSearchParams(window.location.search).get("lang") || "ru";
+    showLang(lang);
   </script>
 
 </body>
