@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Политика конфиденциальности — Финжо</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    h2 { font-size: 1.2rem; margin-top: 32px; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
+    .lang-switch { text-align: right; margin-bottom: 24px; font-size: 0.9rem; }
+    .lang-switch a { color: #0066cc; text-decoration: none; }
+    section[lang="en"] { display: none; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    a { color: #0066cc; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch">
+    <a href="?lang=en" onclick="toggle(event)">English</a> /
+    <a href="?lang=ru" onclick="toggle(event)">Русский</a>
+  </div>
+
+  <!-- РУССКИЙ -->
+  <section lang="ru" id="ru">
+    <h1>Политика конфиденциальности</h1>
+    <p class="meta">Приложение: Финжо &nbsp;·&nbsp; Дата вступления в силу: 2 июля 2026 г.</p>
+
+    <p>Приложение «Финжо» создано для личного учёта финансов. Мы серьёзно относимся к вашей конфиденциальности.</p>
+
+    <h2>Какие данные мы собираем</h2>
+    <p>Мы <strong>не собираем никаких персональных данных</strong>. Все финансовые записи, счета и категории хранятся исключительно на вашем устройстве в локальной базе данных. Данные не передаются на наши серверы и не доступны третьим лицам.</p>
+
+    <h2>Интернет-соединение</h2>
+    <p>Приложение обращается к серверу Центрального банка Российской Федерации (<a href="https://www.cbr.ru">cbr.ru</a>) исключительно для получения актуальных курсов валют. Никакие личные данные при этом не передаются.</p>
+
+    <h2>Разрешения</h2>
+    <ul>
+      <li><strong>Камера</strong> — используется для сканирования QR-кодов кассовых чеков. Изображения не сохраняются и не передаются.</li>
+      <li><strong>Уведомления</strong> — используются для отображения напоминаний, которые вы настраиваете в приложении.</li>
+      <li><strong>Доступ к медиафайлам</strong> — используется для прикрепления изображений к записям. Файлы остаются на устройстве.</li>
+    </ul>
+
+    <h2>Передача данных третьим лицам</h2>
+    <p>Мы не передаём, не продаём и не раскрываем ваши данные каким-либо третьим лицам. В приложении отсутствует аналитика, реклама и сторонние SDK для отслеживания.</p>
+
+    <h2>Хранение данных</h2>
+    <p>Все данные хранятся локально на вашем устройстве. При удалении приложения все данные удаляются вместе с ним.</p>
+
+    <h2>Дети</h2>
+    <p>Приложение не предназначено для сбора данных о детях и не собирает их.</p>
+
+    <h2>Изменения политики</h2>
+    <p>В случае изменения политики конфиденциальности обновлённая версия будет опубликована по этому адресу с указанием новой даты.</p>
+
+    <h2>Контакты</h2>
+    <p>По вопросам, связанным с конфиденциальностью: <a href="mailto:pavlovav90@gmail.com">pavlovav90@gmail.com</a></p>
+  </section>
+
+  <!-- ENGLISH -->
+  <section lang="en" id="en">
+    <h1>Privacy Policy</h1>
+    <p class="meta">App: Finzho &nbsp;·&nbsp; Effective date: July 2, 2026</p>
+
+    <p>Finzho is a personal finance tracking app. We take your privacy seriously.</p>
+
+    <h2>What data we collect</h2>
+    <p>We <strong>do not collect any personal data</strong>. All financial records, accounts, and categories are stored exclusively on your device in a local database. Data is never sent to our servers or shared with third parties.</p>
+
+    <h2>Internet access</h2>
+    <p>The app connects to the Central Bank of Russia (<a href="https://www.cbr.ru">cbr.ru</a>) solely to fetch current exchange rates. No personal data is transmitted in this process.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>Camera</strong> — used to scan QR codes on receipts. Images are not stored or transmitted.</li>
+      <li><strong>Notifications</strong> — used to display reminders you configure within the app.</li>
+      <li><strong>Media access</strong> — used to attach images to transaction records. Files remain on your device.</li>
+    </ul>
+
+    <h2>Third-party sharing</h2>
+    <p>We do not share, sell, or disclose your data to any third parties. The app contains no analytics, advertising, or third-party tracking SDKs.</p>
+
+    <h2>Data storage</h2>
+    <p>All data is stored locally on your device. Uninstalling the app removes all associated data.</p>
+
+    <h2>Children</h2>
+    <p>The app is not directed at children and does not knowingly collect data from them.</p>
+
+    <h2>Policy changes</h2>
+    <p>If this policy changes, the updated version will be published at this URL with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>For privacy-related questions: <a href="mailto:pavlovav90@gmail.com">pavlovav90@gmail.com</a></p>
+  </section>
+
+  <script>
+    function toggle(e) {
+      e.preventDefault();
+      const lang = new URL(e.target.href).searchParams.get("lang");
+      document.getElementById("ru").style.display = lang === "ru" ? "" : "none";
+      document.getElementById("en").style.display = lang === "en" ? "" : "none";
+    }
+  </script>
+
+</body>
+</html>
